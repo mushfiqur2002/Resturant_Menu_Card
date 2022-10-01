@@ -1,0 +1,161 @@
+:root{
+    --headinText_color:#1C2B2D;
+    --bg_color:#F4F9F9;
+    --itemBg_color:#B1BCE6;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: var(--bg_color)
+}
+.container{
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+    
+}
+.heading{
+    width: 100%;
+    height: 150px;
+    justify-content: center;
+    align-items: flex-end;
+    display: flex;
+}
+.heading h1{
+    color: var(--headinText_color);
+    position: relative;
+}
+.heading h1::before{
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    bottom: -5px;
+    border-radius: 15px;
+    background: red
+}
+
+.selectItem{
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.selectItem ul{
+    list-style: none;
+    display: flex;
+    gap:10px;
+}
+.selectItem ul li{
+    font-size: 20px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid; 
+    cursor: pointer;
+    border-radius: 10px;
+}
+.selectItem ul li:hover,
+.selectItem ul li.active{
+    background: var(--itemBg_color);
+    transition: .2s;
+}
+
+.foodItemContainer{
+    height: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap:50px;
+    padding: 0px 0px 100px 0px;
+}
+.foodItemContainer .item{
+    width: 700px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap:10px;
+    background: var(--itemBg_color);
+    border-radius: 15px;
+    color: #060930;
+}
+.foodItemContainer .item .image{
+    grid-row: 1/3;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.foodItemContainer .item .image img{
+    width: 95%;
+    height:90%;
+    border-radius: 15px;
+    border:5px solid #182747;
+}
+.foodItemContainer .item .title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:100px;
+    position: relative;
+}
+.foodItemContainer .item .title::before{
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 3px;
+    background: rgba(0,0,0,0.3);
+    bottom: 10px;
+    border-radius: 50px;
+}
+.foodItemContainer .item .title .price{
+    position: absolute;
+    right: 50px;
+    z-index: 1111;
+}
+.foodItemContainer .item .title .foodName,
+.foodItemContainer .item .title .price{
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+}
+.foodItemContainer .item .description p{
+    padding: 0px 20px 0px 0px;
+    font-size: 15px;
+    line-height: 20px;
+    word-spacing: 5px;
+    text-transform: inherit;
+}
+
+
+@media only screen and (max-width: 1200px){
+    .foodItemContainer .item{
+        width: 500px;
+        height: 180px;
+    }
+    .foodItemContainer .item .title .foodName{
+        letter-spacing: 0px;
+
+    }
+}
+@media only screen and (max-width: 600px){
+    .foodItemContainer{
+        width: 100%;
+        display: grid;
+        place-items: center;
+        grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 425px){
+    .foodItemContainer .item{
+        width: 100%;
+    }
+}
